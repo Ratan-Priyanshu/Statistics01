@@ -2967,16 +2967,14 @@ def show_statistics():
     # Button to close the statistics window
     ttk.Button(stats_window, text='Close', command=stats_window.destroy).pack(pady=10)
 
-# Create the main window
+
 root = tk.Tk()
 root.title('Data Visualization')
-root.configure(bg='light gray')  # Set the background color for the window
+root.configure(bg='cyan')
 
-# Frame for plot canvas
-frame = tk.Frame(root, bg='white')  # Set frame background to white
+frame = tk.Frame(root, bg='lime') 
 frame.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
 
-# Define a style for the buttons
 style = ttk.Style()
 style.configure('TButton', font=('Sans', '10', 'bold'), borderwidth='4')
 style.map('TButton', foreground=[('active', '!disabled', 'green')], background=[('active', 'black')])
@@ -2984,11 +2982,10 @@ style.map('TButton', foreground=[('active', '!disabled', 'green')], background=[
 menu_bar = tk.Menu(root)
 root.config(menu=menu_bar)
 
-# Add a "Statistics" menu
 stats_menu = tk.Menu(menu_bar, tearoff=0)
 menu_bar.add_cascade(label='Statistics', menu=stats_menu)
 stats_menu.add_command(label='Show Statistics', command=show_statistics)
-# Buttons for each plot
+
 buttons = [
     ('Show Sales Trend', plot_sales_trend),
     ('Show Quantity vs Price', plot_quantity_vs_price),
@@ -3000,12 +2997,10 @@ buttons = [
     ('Show Sales vs MSRP', plot_sales_vs_msrp)
 ]
 
-# Create and pack buttons onto the GUI
 for btn_text, btn_command in buttons:
     button = ttk.Button(root, text=btn_text, command=btn_command, style='TButton')
     button.pack(side=tk.LEFT, padx=5, pady=5, ipadx=10, ipady=5)
 
-# Start the GUI event loop
 root.mainloop()
 
 
